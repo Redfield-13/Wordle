@@ -33,8 +33,19 @@ fs.readFile('words_alpha.txt', (err, data) => {
 
           }
           else{
-            let newwords = words.filter((word)=> (word.includes(letter)))
-            words = newwords
+            let pos02 = prompt('does it have a wrong position? y/n ')
+            if(pos02 == 'y'){
+              poss02 = prompt()
+              let newwords = words.filter((word)=> (word.includes(letter)))
+              words = newwords
+              newwords = words.filter((word)=> (word.includes(letter,poss02)))
+              words = newwords
+            }
+            else{
+              let newwords = words.filter((word)=> (word.includes(letter)))
+              words = newwords
+            }
+
           }
 
 
