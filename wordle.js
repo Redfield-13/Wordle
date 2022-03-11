@@ -16,7 +16,7 @@ fs.readFile('words_alpha.txt', (err, data) => {
     }
     let action = ''
     while (action !=='s') {
-      // console.log('for seraching press "S" , for including a letter press "I", for excluding a letter press"E"')
+      console.log('for seraching press "S" , for including a letter press "I", for excluding a letter press"E"')
       action = prompt()
 
       switch (action){
@@ -28,8 +28,10 @@ fs.readFile('words_alpha.txt', (err, data) => {
             poss = prompt()
             let newwords = words.filter((word)=> (word.includes(letter)))
             words = newwords
-             newwords = words.filter((word)=> !(word.includes(letter,poss)))
+             newwords = words.filter((word)=> (word[poss-1] == letter))
+             // words.filter((word)=> console.log(poss))
              words = newwords
+
 
           }
           else{
@@ -38,7 +40,7 @@ fs.readFile('words_alpha.txt', (err, data) => {
               poss02 = prompt()
               let newwords = words.filter((word)=> (word.includes(letter)))
               words = newwords
-              newwords = words.filter((word)=> (word.includes(letter,poss02)))
+              newwords = words.filter((word)=> !(word[poss02-1] == letter))
               words = newwords
             }
             else{
